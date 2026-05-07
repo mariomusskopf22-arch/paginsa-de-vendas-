@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.carrossel-track {
+  display: flex;
+  width: max-content;
+}
+
+.testimonial-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  /* The track width must be (total/visible) * 100% of the container */
+  width: calc(100% * var(--total) / var(--visible));
+  transform: translateX(calc(var(--index) * -100% / var(--total)));
+}
+
+.testimonial-card-wrapper {
+  /* Each card must be exactly 1/total of the track width */
+  width: calc(100% / var(--total));
+  flex-shrink: 0;
+  padding: 0 12px;
+}
+
+.nav-button {
+  background-color: #FF4D6D;
+  color: white;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  transform: scale(1.1);
+  background-color: #FF3358;
+}
